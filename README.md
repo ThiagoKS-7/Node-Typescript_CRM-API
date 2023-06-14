@@ -46,9 +46,11 @@
 -  A aplicação deve ser hospedada online(ex.: Heroku) e o banco de dados deve estar no MongoDB Atlas.
 
 ## UML <a name = "uml"></a>
- ### Casos de uso e classes:
+ ### Casos de uso:
    <img width=400px height=400px src="https://github.com/ThiagoKS-7/crm-api/assets/83460816/58b162d8-008f-4cac-b51a-ed928ced6ad8" alt="Usecase diagram" />
-  <img width=450px height=350px align="right"  src="https://github.com/ThiagoKS-7/crm-api/assets/83460816/4b14f2f8-544d-4897-88d5-0b7ba7667a4d" alt="Classes diagram" />
+
+ ### Classes:
+  <img width=450px height=350px src="https://github.com/ThiagoKS-7/crm-api/assets/83460816/4b14f2f8-544d-4897-88d5-0b7ba7667a4d" alt="Classes diagram" />
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
