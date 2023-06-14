@@ -97,6 +97,16 @@ Crie os schemas do prisma, com o comando:
 npm run gen
 ```
 
+Crie uma chave privada para o JWT, com o comando:
+```bash
+openssl genrsa -out private.pem 2048
+```
+
+Em seguida, crie uma publica, usando:
+```bash
+openssl rsa -in private.pem -pubout -out public.pem
+```
+
 ## 🎈 Usage <a name="usage"></a>
 
 Para testar localmente  o código, depois de seguir o processo de instalação, escreva:

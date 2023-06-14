@@ -14,9 +14,9 @@ class AgentRepository implements IAgentRepository {
     const agents: Agent[] = await prisma.agent.findMany();
     return agents;
   }
-  async findByName(name: string): Promise<Agent[]> {
-    const agents: Agent[] = await prisma.agent.findMany({ where: { name } });
-    return agents;
+  async findOneByName(name: string): Promise<Agent | null> {
+    const agent = await prisma.agent.findFirst({ where: { name } });
+    return agent;
   }
 }
 
