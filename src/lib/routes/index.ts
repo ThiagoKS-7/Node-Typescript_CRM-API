@@ -1,5 +1,5 @@
 module.exports = function (fastify:any, opts:any, done:Function) {
-    fastify.register(require("../dtos/agent"), {prefix: "/agent"})
-    fastify.register(require("../dtos/client"), {prefix: "/agent"})
+    fastify.register(require("../modules/agent"), {prefix: "/agent"})
+    fastify.register(require("../modules/client"), {prefix: "/agent"})
     done()
 }

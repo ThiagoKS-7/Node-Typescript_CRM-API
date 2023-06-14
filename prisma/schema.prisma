@@ -11,28 +11,29 @@ datasource db {
 }
 
 model Client {
-  id      String  @id @default(auto()) @map("_id") @db.ObjectId
-  email   String  @unique
-  name    String
-  phone   String
-  status  String
-  address Address
-  agentId String? @db.ObjectId
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  email     String    @unique
+  phone     String
+  status    String
+  address   Address
+  agentName String?
   createdAt DateTime? @default(now())
 }
 
 type Address {
-  street String
-  city   String
-  number String
-  state  String
-  zip    String
+  street       String
+  city         String
+  neighborhood String
+  number       String
+  state        String
+  zip          String
 }
 
 model Agent {
-  id      String   @id @default(auto()) @map("_id") @db.ObjectId
-  name    String
-  password String
-  clients Json?
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  password  String
+  clients   Json?
   createdAt DateTime? @default(now())
 }
