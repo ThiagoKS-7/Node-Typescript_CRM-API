@@ -30,7 +30,10 @@
 
 ## 🧐 About <a name = "about"></a>
 
-### Requisitos Funcionais:
+<details>
+  <summary style="font-size:30px; font-weight:bold"> <h3>Requisitos</h3></summary>
+
+  ### Requisitos Funcionais:
 - O sistema deve permitir o cadastro de clientes, contendo as seguintes informações: `nome, e-mail, telefone, endereço e status.`
 - Ao se cadastrar, o cliente deve ser direcionado para ser atendido por um dos 20 agentes disponíveis de forma sequencial, ordenada pelo nome do agente.
 - Cada agente deve ter uma lista de clientes atribuídos a ele, ordenada pelo momento em que foram cadastrados.
@@ -44,13 +47,18 @@
 -  A interface web deve permitir o cadastro e edição de clientes, a visualização dos clientes atribuídos a cada agente, e a edição dos status dos clientes.
 -  A interface web deve ser responsiva e utilizar Bootstrap para a criação do layout.
 -  A aplicação deve ser hospedada online(ex.: Heroku) e o banco de dados deve estar no MongoDB Atlas.
+</details>
 
-## UML <a name = "uml"></a>
- ### Casos de uso:
+<details>
+  <summary style="font-size:30px; font-weight:bold"> <h3>UML</h3> <a name = "uml"></a></summary>
+
+  ### Casos de uso:
    <img width=400px height=400px src="https://github.com/ThiagoKS-7/crm-api/assets/83460816/58b162d8-008f-4cac-b51a-ed928ced6ad8" alt="Usecase diagram" />
 
  ### Classes:
   <img width=450px height=350px src="https://github.com/ThiagoKS-7/crm-api/assets/83460816/4b14f2f8-544d-4897-88d5-0b7ba7667a4d" alt="Classes diagram" />
+</details>
+
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
