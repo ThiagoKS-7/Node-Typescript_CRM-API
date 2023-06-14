@@ -1,6 +1,6 @@
 <p align="center">
   <a href="" rel="noopener">
- <img width=200px height=200px src="https://i.imgur.com/6wj0hh6.jpg" alt="Project logo"></a>
+ <img width=500px height=400px src="https://github.com/ThiagoKS-7/crm-api/assets/83460816/0b163dfb-986c-4882-9afb-382383aab2a3" alt="Project logo"></a>
 </p>
 
 <h3 align="center">Node.js CRM REST-API</h3>
