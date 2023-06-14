@@ -10,7 +10,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Clients {
+model Client {
   id      String  @id @default(auto()) @map("_id") @db.ObjectId
   email   String  @unique
   name    String
@@ -18,6 +18,7 @@ model Clients {
   status  String
   address Address
   agentId String? @db.ObjectId
+  createdAt DateTime? @default(now())
 }
 
 type Address {
@@ -33,4 +34,5 @@ model Agent {
   name    String
   password String
   clients Json?
+  createdAt DateTime? @default(now())
 }
