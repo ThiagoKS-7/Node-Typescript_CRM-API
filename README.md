@@ -38,7 +38,7 @@
 - As colunas devem ser ordenadas dessa forma:  `"Aguardando Atendimento", "Em Atendimento", "Proposta Feita", "Não Concluído" ou "Vendido"`
 
 ### Requisitos Técnicos:
--  A aplicação deve ser desenvolvida utilizando Node.js, MongoDB, AngularJS e Bootstrap.
+-  A aplicação deve ser desenvolvida utilizando `Node.js, MongoDB, AngularJS e Bootstrap`.
 -  A API deve seguir o padrão RESTful e suportar as operações CRUD.
 -  A interface web deve permitir o cadastro e edição de clientes, a visualização dos clientes atribuídos a cada agente, e a edição dos status dos clientes.
 -  A interface web deve ser responsiva e utilizar Bootstrap para a criação do layout.
@@ -92,6 +92,8 @@ npm run dev
 ## ⛏️ Built Using <a name = "built_using"></a>
 
 - [MongoDB](https://www.mongodb.com/) - Database
+- [Zod](https://zod.dev/) - Schema validation
+- [Prisma](https://www.prisma.io/) - Node & Typescript ORM
 - [Fastify](https://www.fastify.io/) - Server Framework
 - [NodeJs](https://nodejs.org/en/) - Server Environment
 
