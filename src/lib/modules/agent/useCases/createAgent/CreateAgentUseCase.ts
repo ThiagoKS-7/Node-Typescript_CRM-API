@@ -1,3 +1,4 @@
+import { hash } from "bcrypt";
 import { ICreateAgentDto } from "../../dtos/ICreateAgentDto";
 import { AgentRepository } from "../../repositories/AgentRepository";
 import { IAgentRepository } from "../../repositories/IAgentRepository";
@@ -10,7 +11,12 @@ class CreateAgentUseCase {
   }
   async execute({ name, password, clients }: ICreateAgentDto) {
     try {
-      await this.agentRepository.create({ name, password, clients });
+      const passwordHash = await hash(password, 8);
+      await this.agentRepository.create({
+        name,
+        password: passwordHash,
+        clients,
+      });
     } catch (error: any) {
       throw new Error(error);
     }
