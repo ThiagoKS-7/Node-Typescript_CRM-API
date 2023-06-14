@@ -24,6 +24,7 @@
 
 - [About](#about)
 - [Getting Started](#getting_started)
+- [UML](#uml)
 - [Built Using](#built_using)
 - [Authors](#authors)
 
@@ -43,6 +44,11 @@
 -  A interface web deve permitir o cadastro e edição de clientes, a visualização dos clientes atribuídos a cada agente, e a edição dos status dos clientes.
 -  A interface web deve ser responsiva e utilizar Bootstrap para a criação do layout.
 -  A aplicação deve ser hospedada online(ex.: Heroku) e o banco de dados deve estar no MongoDB Atlas.
+
+## UML <a name = "uml"></a>
+ ### Casos de uso e classes:
+   <img width=400px height=400px src="https://github.com/ThiagoKS-7/crm-api/assets/83460816/58b162d8-008f-4cac-b51a-ed928ced6ad8" alt="Usecase diagram" />
+  <img width=450px height=350px align="right"  src="https://github.com/ThiagoKS-7/crm-api/assets/83460816/4b14f2f8-544d-4897-88d5-0b7ba7667a4d" alt="Classes diagram" />
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
