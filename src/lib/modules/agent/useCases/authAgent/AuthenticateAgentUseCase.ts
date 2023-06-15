@@ -17,9 +17,6 @@ class AuthenticateAgentUseCase {
       id: agent.id,
       name: agent.name,
     };
-    const privateKey = fs.readFileSync(path.resolve("private.pem"),
-      "utf8"
-    );
 
     const signInOptions: SignOptions = {
       // RS256 uses a public/private key pair. The API provides the private key
@@ -28,7 +25,7 @@ class AuthenticateAgentUseCase {
       algorithm: "RS256",
       expiresIn: "1h",
     };
-    return sign(payload, privateKey, signInOptions);
+    return sign(payload, process.env.JWT_SECRET as string, signInOptions);
   }
 
   async execute(name: string, password: string) {

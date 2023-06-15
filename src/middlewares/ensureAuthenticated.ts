@@ -19,11 +19,8 @@ export async function ensureAuthenticated(request: any, reply: any) {
     });
   }
   const [, token] = authHeader.split(" ");
-  const privateKey = fs.readFileSync(path.resolve("private.pem"),
-    "utf8"
-  );
-
-  const { id, name } = (await verify(token, privateKey)) as IPayload;
+  const secret = process.env.JWT_SECRET;
+  const { id, name } = (await verify(token, secret as string )) as IPayload;
   const usecase = new EnsureAuthAgentUseCase();
   const response = await usecase.execute(id);
   if (typeof response != "object") {
