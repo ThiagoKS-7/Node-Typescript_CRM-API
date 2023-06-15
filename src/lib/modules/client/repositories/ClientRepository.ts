@@ -4,9 +4,17 @@ import { ICreateClientDto } from "../dtos/ICreateClientDto";
 import { IClientRepository } from "./IClientRepository";
 
 class ClientRepository implements IClientRepository {
-  async findMany(): Promise<any> {
-    const Clients = await prisma.client.findMany();
-    return Clients;
+  private static _instance: ClientRepository;
+
+  private constructor() {}
+
+  static getInstance() {
+    if (this._instance) {
+      return this._instance;
+    }
+
+    this._instance = new ClientRepository();
+    return this._instance;
   }
   async create({
     name,
@@ -20,6 +28,10 @@ class ClientRepository implements IClientRepository {
       data: { name, email, phone, address, status, agentName },
     });
     return Client;
+  }
+  async findMany(): Promise<any> {
+    const Clients = await prisma.client.findMany();
+    return Clients;
   }
   async findByEmail(email: string): Promise<Client> {
     const client = await prisma.client.findFirst({

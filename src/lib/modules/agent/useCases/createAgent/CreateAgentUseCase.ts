@@ -5,7 +5,7 @@ import { IAgentRepository } from "../../repositories/IAgentRepository";
 
 class CreateAgentUseCase {
   constructor(
-    private agentRepository: IAgentRepository = new AgentRepository()
+    private agentRepository: IAgentRepository = AgentRepository.getInstance()
   ) {
     this.agentRepository = agentRepository;
   }

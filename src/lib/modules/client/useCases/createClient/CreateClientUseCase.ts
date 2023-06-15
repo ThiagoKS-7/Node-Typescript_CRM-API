@@ -4,7 +4,7 @@ import { IClientRepository } from "../../repositories/IClientRepository";
 
 class CreateClientUseCase {
   constructor(
-    private clientRepository: IClientRepository = new ClientRepository()
+    private clientRepository: IClientRepository = ClientRepository.getInstance()
   ) {
     this.clientRepository = clientRepository;
   }

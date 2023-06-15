@@ -6,7 +6,7 @@ import { IAgentRepository } from "../../repositories/IAgentRepository";
 
 class AuthenticateAgentUseCase {
   constructor(
-    private agentRepository: IAgentRepository = new AgentRepository()
+    private agentRepository: IAgentRepository = AgentRepository.getInstance()
   ) {
     this.agentRepository = agentRepository;
   }
@@ -16,7 +16,6 @@ class AuthenticateAgentUseCase {
       id: agent.id,
       name: agent.name,
     };
-    console.log("payload", payload);
     const privateKey = fs.readFileSync(
       "/home/thiago/node/crm-api/private.pem",
       "utf8"
