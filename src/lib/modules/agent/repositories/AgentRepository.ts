@@ -31,7 +31,10 @@ class AgentRepository implements IAgentRepository {
     return agent;
   }
   async findOneById(id: string): Promise<Agent | null> {
-    const agent = await prisma.agent.findFirst({ where: { id } });
+    if (!id) {
+      return null;
+    }
+    const agent = await prisma.agent.findUnique({ where: { id: id } });
     return agent;
   }
 }

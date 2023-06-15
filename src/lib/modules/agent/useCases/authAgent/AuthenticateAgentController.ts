@@ -14,12 +14,13 @@ class AuthenticateAgentController {
           message: res,
         });
       }
-      return reply.status(201).send({
-        statusCode: 201,
+      return reply.status(200).send({
+        statusCode: 200,
         message: "Agent logged in successfully!",
-        token: res,
+        token: res.data,
       });
     } catch (err) {
+      console.log(err);
       return reply.status(400).send({
         statusCode: 400,
         error: "BadRequest",

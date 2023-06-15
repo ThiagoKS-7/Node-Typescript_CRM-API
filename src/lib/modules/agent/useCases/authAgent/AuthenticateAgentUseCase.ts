@@ -41,8 +41,8 @@ class AuthenticateAgentUseCase {
       return "Invalid email or password! Check your payload and try again.";
     }
 
-    const token = this.generateToken(agent);
-    return token;
+    const token = await this.generateToken(agent);
+    return { data: token };
   }
 }
 
