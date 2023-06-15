@@ -1,4 +1,5 @@
 import * as fs from "fs";
+import path from "path";
 import { compare } from "bcrypt";
 import { sign, SignOptions } from "jsonwebtoken";
 import { AgentRepository } from "../../repositories/AgentRepository";
@@ -16,8 +17,7 @@ class AuthenticateAgentUseCase {
       id: agent.id,
       name: agent.name,
     };
-    const privateKey = fs.readFileSync(
-      "/home/thiago/node/crm-api/private.pem",
+    const privateKey = fs.readFileSync(path.resolve("private.pem"),
       "utf8"
     );
 

@@ -2,6 +2,7 @@ import * as fs from "fs";
 import { verify } from "jsonwebtoken";
 import { Agent } from "@prisma/client";
 import { EnsureAuthAgentUseCase } from "../lib/modules/agent/useCases/ensureAuthAgent/EnsureAuthAgentUseCase";
+import path from "path";
 
 interface IPayload {
   id: string;
@@ -18,8 +19,7 @@ export async function ensureAuthenticated(request: any, reply: any) {
     });
   }
   const [, token] = authHeader.split(" ");
-  const privateKey = fs.readFileSync(
-    "/home/thiago/node/crm-api/private.pem",
+  const privateKey = fs.readFileSync(path.resolve("private.pem"),
     "utf8"
   );
 
