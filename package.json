@@ -21,6 +21,7 @@
   "license": "MIT",
   "dependencies": {
     "@fastify/auth": "^4.3.0",
+    "@fastify/cors": "^8.3.0",
     "@prisma/client": "^4.13.0",
     "@types/node": "^20.1.0",
     "bcrypt": "^5.1.0",
