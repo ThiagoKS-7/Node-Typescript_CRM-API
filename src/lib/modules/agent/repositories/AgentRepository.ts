@@ -6,7 +6,7 @@ import { IAgentRepository } from "./IAgentRepository";
 class AgentRepository implements IAgentRepository {
   async create({ name, password, clients }: ICreateAgentDto): Promise<Agent> {
     const agent = await prisma.agent.create({
-      data: { name, password, clients: clients },
+      data: { name, password, clients },
     });
     return agent;
   }

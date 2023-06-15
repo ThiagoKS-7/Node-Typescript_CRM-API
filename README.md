@@ -107,6 +107,11 @@ Em seguida, crie uma publica, usando:
 openssl rsa -in private.pem -pubout -out public.pem
 ```
 
+Crie um agente admin com a senha do seu .env, a partir da seed, usando:
+```bash
+npx prisma db seed
+```
+
 ## 🎈 Usage <a name="usage"></a>
 
 Para testar localmente  o código, depois de seguir o processo de instalação, escreva:

@@ -6,6 +6,9 @@
   "engines": {
     "node": "18"
   },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
   "scripts": {
     "dev": "npx nodemon src/server.ts",
     "gen": "npx prisma generate",
