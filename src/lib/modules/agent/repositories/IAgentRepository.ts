@@ -6,6 +6,7 @@ interface IAgentRepository {
   findMany(): Promise<Agent[]>;
   findOneByName(name: string): Promise<Agent | null>;
   findOneById(id: string): Promise<Agent | null>;
+  updateClient(id: string, clients: any) : Promise<Agent | null>;
 }
 
 export { IAgentRepository };

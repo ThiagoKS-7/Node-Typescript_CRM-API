@@ -37,6 +37,13 @@ class AgentRepository implements IAgentRepository {
     const agent = await prisma.agent.findUnique({ where: { id: id } });
     return agent;
   }
+  async updateClient(id: string, clients:any) :  Promise<Agent | null>{
+    if (!id) {
+      return null;
+    }
+    const agent = await prisma.agent.update({ where: { id}, data: { clients}} );
+    return agent;
+  }
 }
 
 export { AgentRepository };
