@@ -30,8 +30,18 @@ class ClientRepository implements IClientRepository {
     return Client;
   }
   async findMany(): Promise<any> {
-    const Clients = await prisma.client.findMany();
-    return Clients;
+    const waiting = await prisma.client.findMany({ where: { status: "Aguardando atendimento"}});
+    const inAttendence = await prisma.client.findMany({ where: { status: "Em atendimento"}});
+    const proposalMade =  await prisma.client.findMany({ where: { status: "Proposta feita"}});
+    const notCompleted =  await prisma.client.findMany({ where: { status: "Não concluído"}});
+    const sold =  await prisma.client.findMany({ where: { status: "Vendido"}});
+    return {
+      waiting,
+      inAttendence,
+      proposalMade,
+      notCompleted,
+      sold,
+    }
   }
   async findByEmail(email: string): Promise<Client> {
     const client = await prisma.client.findFirst({
