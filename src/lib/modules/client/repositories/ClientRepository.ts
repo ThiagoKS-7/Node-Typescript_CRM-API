@@ -30,11 +30,22 @@ class ClientRepository implements IClientRepository {
     return Client;
   }
   async findMany(): Promise<any> {
-    const waiting = await prisma.client.findMany({ where: { status: "Aguardando atendimento"}});
-    const inAttendence = await prisma.client.findMany({ where: { status: "Em atendimento"}});
-    const proposalMade =  await prisma.client.findMany({ where: { status: "Proposta feita"}});
-    const notCompleted =  await prisma.client.findMany({ where: { status: "Não concluído"}});
-    const sold =  await prisma.client.findMany({ where: { status: "Vendido"}});
+    const waiting = await prisma.client.findMany({ 
+      where: { status: "Aguardando atendimento"},       
+      orderBy: {createdAt: 'desc',},
+    });
+    const inAttendence = await prisma.client.findMany({ where: { status: "Em atendimento"},
+    orderBy: {createdAt: 'desc',},
+  });
+    const proposalMade =  await prisma.client.findMany({ where: { status: "Proposta feita"},
+    orderBy: {createdAt: 'desc',},
+  });
+    const notCompleted =  await prisma.client.findMany({ where: { status: "Não concluído"},
+    orderBy: {createdAt: 'desc',},
+  });
+    const sold =  await prisma.client.findMany({ where: { status: "Vendido"},
+    orderBy: {createdAt: 'desc',},
+  });
     return {
       waiting,
       inAttendence,
@@ -43,19 +54,82 @@ class ClientRepository implements IClientRepository {
       sold,
     }
   }
+  async findManyByAgentName(name:string): Promise<any> {
+    const waiting = await prisma.client.findMany({ 
+      where: { status: "Aguardando atendimento", agentName: name },       
+      orderBy: {createdAt: 'desc',},
+    });
+    const inAttendence = await prisma.client.findMany({ 
+      where: { status: "Em atendimento", agentName: name },
+      orderBy: {createdAt: 'desc',},
+    });
+    const proposalMade =  await prisma.client.findMany({
+      where: { status: "Proposta feita", agentName: name },
+      orderBy: {createdAt: 'desc',},
+    });
+    const notCompleted =  await prisma.client.findMany({ 
+      where: { status: "Não concluído", agentName: name },
+      orderBy: {createdAt: 'desc',},
+    });
+    const sold =  await prisma.client.findMany({ 
+      where: { status: "Vendido", agentName: name },
+      orderBy: {createdAt: 'desc',},
+    });
+
+    return {
+      waiting,
+      inAttendence,
+      proposalMade,
+      notCompleted,
+      sold,
+    }
+  }
+  async findOne(id: string): Promise<Client> {
+    const client = await prisma.client.findFirst({
+      where: { id },
+    });
+    return client as Client;
+  }
   async findByEmail(email: string): Promise<Client> {
     const client = await prisma.client.findFirst({
       where: { email },
     });
     return client as Client;
   }
-  async findByAgentName(name: string): Promise<Client[]> {
-    const client = await prisma.client.findMany({
-      where: {
-        agentName: name,
-      },
+  async update(id: string, {
+    name,
+    email,
+    phone,
+    address,
+    status,
+    agentName,
+  }: ICreateClientDto): Promise<Client> {
+    const Client = await prisma.client.update({
+      where: {id},
+      data: { name, email, phone, address, status, agentName },
     });
-    return client as Client[];
+    return Client;
+  }
+  async updateStatus(id: string, status: string) {
+    const Client = await prisma.client.update({
+      where: {id},
+      data: { status },
+    });
+    return Client;
+  }
+  async updateAgent(id: string, name: string) {
+    const Client = await prisma.client.update({
+      where: {id},
+      data: { agentName: name },
+    });
+    return Client;
+  }
+
+  async delete(id: string) {
+    const Client = await prisma.client.delete({
+      where: {id}
+    });
+    return Client;
   }
 }
 
