@@ -19,9 +19,6 @@ class AuthenticateAgentUseCase {
     };
 
     const signInOptions: SignOptions = {
-      // RS256 uses a public/private key pair. The API provides the private key
-      // to generate the JWT. The client gets a public key to validate the
-      // signature
       expiresIn: "1h",
     };
     return sign(payload, process.env.JWT_SECRET as string, signInOptions);
