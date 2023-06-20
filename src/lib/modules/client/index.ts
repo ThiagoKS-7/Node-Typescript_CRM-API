@@ -93,7 +93,7 @@ module.exports = function (fastify: any, opts: any, done: any) {
     },
   });
   fastify.route({
-    method: "DELETE",
+    method: "POST",
     url: "/delete-client",
     preHandler: fastify.auth([
       async (request: any, reply: any) => {
