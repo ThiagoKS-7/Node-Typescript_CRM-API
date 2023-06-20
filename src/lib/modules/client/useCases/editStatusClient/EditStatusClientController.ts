@@ -1,11 +1,11 @@
-import manageClientSchema from "../../dtos/ManageClientSchema";
+import editClientSchema from "../../dtos/EditStatusSchema";
 import { EditStatusClientUseCase } from "./EditStatusClientUseCase";
 const usecase = new EditStatusClientUseCase();
 
 class EditStatusClientController {
   async handle(request: any, reply: any) {
     try {
-      const { id, status } = manageClientSchema.parse(
+      const { id, status } = editClientSchema.parse(
         request.body
       );
       const res = await usecase.execute(id,status);
