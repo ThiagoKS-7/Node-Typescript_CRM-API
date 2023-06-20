@@ -1,11 +1,11 @@
-import manageClientSchema from "../../dtos/ManageClientSchema";
+import assignClientSchema from "../../dtos/AssignClientSchema";
 import { AssignAgentToClientUseCase } from "./AssginAgentToClientUseCase";
 const usecase = new AssignAgentToClientUseCase();
 
 class AssignAgentToClientController {
   async handle(request: any, reply: any) {
     try {
-      const { id, name } = manageClientSchema.parse(
+      const { id, name } = assignClientSchema.parse(
         request.body
       );
       const res = await usecase.execute(id,name);
