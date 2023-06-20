@@ -1,11 +1,11 @@
-import manageClientSchema from "../../dtos/ManageClientSchema";
+import deleteClientSchema from "../../dtos/DeleteClientSchema";
 import { RemoveClientUseCase } from "./RemoveClientUseCase";
 const usecase = new RemoveClientUseCase();
 
 class RemoveClientController {
   async handle(request: any, reply: any) {
     try {
-      const { id } = manageClientSchema.parse(
+      const { id } = deleteClientSchema.parse(
         request.body
       );
       const res = await usecase.execute(id);
