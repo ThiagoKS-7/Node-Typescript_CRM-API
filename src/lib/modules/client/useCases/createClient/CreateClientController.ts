@@ -13,7 +13,7 @@ class CreateClientController {
         email,
         phone,
         address,
-        status: "Aguardando Atendimento",
+        status: "Aguardando atendimento",
         agentName: "",
       });
       if (typeof res == "string") {
