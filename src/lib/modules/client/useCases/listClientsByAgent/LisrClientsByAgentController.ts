@@ -6,11 +6,12 @@ class ListClientsByAgentController {
     async handle(request:any, reply:any) {
         try {
             const { name } = filterSchema.parse(
-                request.body
+                request.query
               );
             const clients = await usecase.execute(name);
             return reply.status(200).send({"data": clients});
         } catch (error) {
+            console.log(error)
             return reply.status(500).send({
                 "statusCode": 500,
                 "error": "InternalServerError",
